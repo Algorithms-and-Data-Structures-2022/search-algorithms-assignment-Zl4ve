@@ -13,6 +13,22 @@ namespace assignment {
     //    2) Целевой элемент меньше элемента посередине (область поиска сокращается).
     //    3) Целевой элемент больше элемента посередине (область поиска сокращается).
 
+    int left = 0;
+    int right = arr.size() - 1;
+    int middle;
+
+    while (left <= right) {
+      middle = (left + right) / 2;
+
+      if (arr[middle] == search_elem) {
+        return middle;
+      } else if (arr[middle] < search_elem) {
+        left = middle + 1;
+      } else {
+        right = middle - 1;
+      }
+    }
+
     return std::nullopt;
   }
 
